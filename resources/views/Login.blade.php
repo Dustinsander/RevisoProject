@@ -17,7 +17,7 @@
 
       
         <div id="intro" class="bg-white rounded-3xl p-10 text-center transform scale-95 opacity-100 transition-all duration-500">
-            <img src="{{ asset('images/pcc-logo.png') }}" alt="PCC Logo" class="w-36 mx-auto mb-8">
+            <img src="{{ asset('images/revisoLogo.png') }}" alt="RevisoLogo" class="max-w-xs mx-auto mb-8">
 
             <button id="startLogin" class="bg-red-800 text-white px-8 py-3 rounded-xl font-semibold hover:bg-red-700 transition">
                 Log In
