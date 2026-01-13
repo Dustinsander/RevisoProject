@@ -2,15 +2,23 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    // Laravel assumes the table name is "users" already, so no need to set $table.
+    // But if you want to be explicit:
+    // protected $table = 'users';
+
+    // If your primary key is "id", you can leave this out.
+    // If it's "user_id", add:
+    // protected $primaryKey = 'user_id';
+
+    public $timestamps = false; // your table doesn’t have created_at/updated_at
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +26,9 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'user_id',
         'password',
+        'course_type',
     ];
 
     /**
@@ -32,17 +40,4 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
 }

@@ -29,20 +29,21 @@
             <h2 class="text-2xl font-bold mb-8">LOG IN</h2>
 
         
-            <form onsubmit="return false;">
+            <form method="POST" action="/login-check">
+                @csrf
                 <div class="mb-4 text-left">
                     <label class="block font-semibold mb-1">ID No:</label>
-                    <input type="text" placeholder="Enter your ID number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <input type="text" name="idNumber" id="idNumber" placeholder="Enter your ID number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
                 </div>
 
                 <div class="mb-4 text-left">
                     <label class="block font-semibold mb-1">Password:</label>
-                    <input type="password" placeholder="Enter your password" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <input type="password" name="password" id="password" placeholder="Enter your password" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
                 </div>
 
                 <a href="#" class="block text-sm text-blue-700 mb-6 hover:underline">Forgot Password?</a>
 
-                <button type="button" class="w-full bg-red-800 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition">
+                <button type="submit" class="w-full bg-red-800 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition">
                     Log In
                 </button>
             </form>
@@ -50,18 +51,45 @@
 
     </div>
 
-    <script>
-        const startBtn = document.getElementById('startLogin');
-        const intro = document.getElementById('intro');
-        const loginForm = document.getElementById('loginForm');
+ <script>
+    //ui login logic
+    const startBtn = document.getElementById('startLogin');
+    const intro = document.getElementById('intro');
+    const loginForm = document.getElementById('loginForm');
 
-        startBtn.addEventListener('click', () => {
-            intro.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-            intro.classList.remove('opacity-100');
-            
-            loginForm.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-            loginForm.classList.add('opacity-100', 'scale-100');
+    startBtn.addEventListener('click', () => {
+        intro.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        intro.classList.remove('opacity-100');
+        
+        loginForm.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+        loginForm.classList.add('opacity-100', 'scale-100');
+    });
+
+   //login logic
+    const loginBtn = document.querySelector('#loginForm button');
+
+    loginBtn.addEventListener('click', async () => {
+        const idNumber = document.getElementById('idNumber').value;
+        const password = document.getElementById('password').value;
+
+        const response = await fetch('/login-check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ idNumber, password })
         });
-    </script>
+
+        const result = await response.json();
+
+        if (result.success) {
+            alert('Login successful!'); // temporary until you have a dashboard
+        } else {
+            alert('Invalid credentials');
+        }
+    });
+</script>
+
 </body>
 </html>
