@@ -8,7 +8,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-screen w-screen relative bg-cover bg-center" style="background-image: url('{{ asset('images/pcc-building.jpg') }}');">
+<body class="h-screen w-screen relative bg-cover bg-center" style="background-image: url('{{ asset('images/pcc-building.png') }}');">
 
   
     <div class="absolute inset-0 bg-red-900/70 opacity-100"></div>
