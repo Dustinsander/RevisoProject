@@ -1,0 +1,14 @@
+/* Tailwind base styles */
+@tailwind base;
+
+/* Tailwind component styles */
+@tailwind components;
+
+/* Tailwind utility classes */
+@tailwind utilities;
+
+/* Optional: custom CSS */
+:root {
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
