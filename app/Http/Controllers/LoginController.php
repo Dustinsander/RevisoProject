@@ -16,6 +16,10 @@ class LoginController extends Controller
         $user = User::where('id_number', $idNumber)->first();
 
         if ($user && Hash::check($password, $user->password)) {
+            if ($user->course_type === 'psych') {
+                return redirect()->route('psych.dashboard');
+            }
+
             return response()->json(['success' => true]);
         }
 

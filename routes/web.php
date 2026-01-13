@@ -26,7 +26,7 @@ Route::post('/login-check', function (Request $request) {
         return response()->json(['success' => false], 401);
     }
 
-    return match ($user->role) {
+    return match ($user->course_type) {
         'student_Acc'   => redirect()->route('studentDashAcc'),
         'student_Psych' => redirect()->route('studentDashPsych'),
         'student_Teach' => redirect()->route('studentDashTeach'),
