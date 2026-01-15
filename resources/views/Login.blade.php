@@ -43,7 +43,7 @@
 
                 <a href="#" class="block text-sm text-blue-700 mb-6 hover:underline">Forgot Password?</a>
 
-                <button type="submit" class="w-full bg-red-800 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition">
+                <button type="button" id="submitLogin" class="w-full bg-red-800 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition">
                     Log In
                 </button>
             </form>
@@ -66,27 +66,40 @@
     });
 
    //login logic
-    const loginBtn = document.querySelector('#loginForm button');
+    const loginBtn = document.getElementById('submitLogin');
 
     loginBtn.addEventListener('click', async () => {
         const idNumber = document.getElementById('idNumber').value;
         const password = document.getElementById('password').value;
 
-        const response = await fetch('/login-check', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({ idNumber, password })
-        });
+        try {
+            const response = await fetch('/login-check', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ idNumber, password })
+            });
 
-        const result = await response.json();
+            let result;
+            try {
+                result = await response.json();
+            } catch (e) {
+                const text = await response.text();
+                console.error('Non-JSON response from server:', text);
+                alert('Server error. Check console for details.');
+                return;
+            }
 
-        if (result.success) {
-            alert('Login successful!'); // temporary until you have a dashboard
-        } else {
-            alert('Invalid credentials');
+            if (response.ok && result.success) {
+                window.location.href = result.redirect || '/';
+            } else {
+                alert(result.message || 'Invalid credentials');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Network or server error. Check console.');
         }
     });
 </script>

@@ -26,12 +26,13 @@ Route::post('/login-check', function (Request $request) {
         return response()->json(['success' => false], 401);
     }
 
+    // Return JSON with redirect URL so AJAX login can handle navigation.
     return match ($user->course_type) {
-        'student_Acc'   => redirect()->route('studentDashAcc'),
-        'student_Psych' => redirect()->route('studentDashPsych'),
-        'student_Teach' => redirect()->route('studentDashTeach'),
-        'Teacher'       => redirect()->route('teacherDash'),
-        'Admin'         => redirect()->route('adminDash'),
+        'student_Acc'   => response()->json(['success' => true, 'redirect' => route('studentDashAcc')]),
+        'student_Psych' => response()->json(['success' => true, 'redirect' => route('studentDashPsych')]),
+        'student_Educ'  => response()->json(['success' => true, 'redirect' => route('studentDashEduc')]),
+        'Teacher'       => response()->json(['success' => true, 'redirect' => route('StudentDashTeach')]),
+        'Admin'         => response()->json(['success' => true, 'redirect' => route('adminDash')]),
         default         => abort(403),
     };
 });
@@ -39,6 +40,6 @@ Route::post('/login-check', function (Request $request) {
 
 Route::get('/student/acc', fn () => view('StudentDashAcc'))->name('studentDashAcc');
 Route::get('/student/psych', fn () => view('StudentDashPsych'))->name('studentDashPsych');
-Route::get('/student/teach', fn () => view('StudentDashTeach'))->name('studentDashTeach');
-Route::get('/teacher', fn () => view('TeacherDash'))->name('teacherDash');
+Route::get('/student/educ', fn () => view('StudentDashEduc'))->name('studentDashEduc');
 Route::get('/admin', fn () => view('AdminDash'))->name('adminDash');
+Route::get('/teacher/studentdashteach', fn () => view('StudentDashTeach'))->name('StudentDashTeach');

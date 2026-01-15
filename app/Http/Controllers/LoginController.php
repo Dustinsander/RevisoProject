@@ -20,6 +20,18 @@ class LoginController extends Controller
                 return redirect()->route('psych.dashboard');
             }
 
+            if (in_array($user->course_type, ['Accountant', 'student_Acc'])) {
+                return redirect()->route('accountant.dashboard');
+            }
+
+            if ($user->course_type === 'Teacher') {
+                return redirect()->route('teach.dashboard');
+            }
+             if ($user->course_type === 'student_Educ') {
+                return redirect()->route('educ.dashboard');
+            }
+
+
             return response()->json(['success' => true]);
         }
 
