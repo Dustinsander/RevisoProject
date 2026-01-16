@@ -31,7 +31,7 @@ Route::post('/login-check', function (Request $request) {
         'student_Acc'   => response()->json(['success' => true, 'redirect' => route('studentDashAcc')]),
         'student_Psych' => response()->json(['success' => true, 'redirect' => route('studentDashPsych')]),
         'student_Educ'  => response()->json(['success' => true, 'redirect' => route('studentDashEduc')]),
-        'Teacher'       => response()->json(['success' => true, 'redirect' => route('StudentDashTeach')]),
+        'student_Teach' => response()->json(['success' => true, 'redirect' => route('StudentDashTeach')]),
         'Admin'         => response()->json(['success' => true, 'redirect' => route('adminDash')]),
         default         => abort(403),
     };

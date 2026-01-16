@@ -10,31 +10,25 @@ class LoginController extends Controller
 {
     public function check(Request $request)
     {
-        $idNumber = $request->input('idNumber');
-        $password = $request->input('password');
+        $validated = $request->validate([
+            'idNumber' => 'required',
+            'password' => 'required',
+        ]);
 
-        $user = User::where('id_number', $idNumber)->first();
+        $user = User::where('user_id', $validated['idNumber'])->first();
 
-        if ($user && Hash::check($password, $user->password)) {
-            if ($user->course_type === 'psych') {
-                return redirect()->route('psych.dashboard');
-            }
-
-            if (in_array($user->course_type, ['Accountant', 'student_Acc'])) {
-                return redirect()->route('accountant.dashboard');
-            }
-
-            if ($user->course_type === 'Teacher') {
-                return redirect()->route('teach.dashboard');
-            }
-             if ($user->course_type === 'student_Educ') {
-                return redirect()->route('educ.dashboard');
-            }
-
-
-            return response()->json(['success' => true]);
+        if (!$user || !Hash::check($validated['password'], $user->password)) {
+            return response()->json(['success' => false], 401);
         }
 
-        return response()->json(['success' => false]);
+        // Return JSON with redirect URL so AJAX login can handle navigation.
+        return match ($user->course_type) {
+            'student_Acc'   => response()->json(['success' => true, 'redirect' => route('studentDashAcc')]),
+            'student_Psych' => response()->json(['success' => true, 'redirect' => route('studentDashPsych')]),
+            'student_Educ'  => response()->json(['success' => true, 'redirect' => route('studentDashEduc')]),
+            'student_Teach' => response()->json(['success' => true, 'redirect' => route('StudentDashTeach')]),
+            'Admin'         => response()->json(['success' => true, 'redirect' => route('adminDash')]),
+            default         => abort(403),
+        };
     }
 }
