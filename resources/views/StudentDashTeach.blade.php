@@ -29,54 +29,43 @@
     <div class="flex">
 
         {{-- SIDEBAR --}}
-        <aside class="w-64 bg-[#EA4E4E] min-h-[calc(100vh-4rem)] text-white">
+        <aside class="w-64 bg-[#5C6FED] min-h-[calc(100vh-4rem)] text-white">
             <nav class="flex flex-col text-lg font-semibold">
-                <a href="#" class="bg-[#E12828] px-6 py-5">Dashboard</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#E12828]">Manage Lectures</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#E12828]">Manage Assessments</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#E12828]">Student Performance</a>
+                <a href="#" class="bg-[#455AE4] px-6 py-5">Dashboard</a>
+                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Lectures</a>
+                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Assessments</a>
+                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Progress Tracker</a>
             </nav>
         </aside>
 
         {{-- MAIN CONTENT --}}
         <main class="flex-1 p-10 space-y-10">
 
-            {{-- WELCOME / UPCOMING --}}  {{-- To be changed and updated--}}
+            {{-- WELCOME / UPCOMING --}}
             <section class="bg-white rounded-2xl p-8">
                 <h1 class="text-2xl font-bold mb-4">
-                    Welcome back, [Teacher Name]
+                    Welcome back, [Teacher Student Name]
                 </h1>
 
-                <h2 class="text-xl font-semibold mb-2">Upcoming Assessments</h2>
+                <h2 class="text-xl font-semibold mb-2">Upcoming Deadlines</h2>
 
-                <p class="text-lg">January 4, 2025 – Theory of Personalities</p>
-                <p class="text-lg">February 1, 2025 – Abnormal Psychology</p>
+                <p class="text-lg">January 20, 2025 – Language Arts</p>
+                <p class="text-lg">February 15, 2025 – Social Studies</p>
             </section>
 
-            {{-- PERFORMANCE TRACKER --}} {{-- To be change into an adaptive progress bar--}}
+            {{-- PERFORMANCE TRACKER --}}
             <section class="bg-white rounded-2xl p-8">
                 <h2 class="text-2xl font-bold mb-6">Performance Tracker</h2>
 
-                {{-- Science --}}
+                {{-- Mathematics --}}
                 <div class="mb-5">
                     <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">Science</span>
+                        <span class="w-24 text-lg font-semibold">Mathematics</span>
                         <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 25%;"></div>
+                            <div class="h-full bg-green-400 rounded-full" style="width: 80%;"></div>
                         </div>
                     </div>
-                    <span class="ml-28 text-gray-500">25%</span>
-                </div>
-
-                {{-- Math --}}
-                <div class="mb-5">
-                    <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">Math</span>
-                        <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 50%;"></div>
-                        </div>
-                    </div>
-                    <span class="ml-28 text-gray-500">50%</span>
+                    <span class="ml-28 text-gray-500">80%</span>
                 </div>
 
                 {{-- English --}}
@@ -84,21 +73,32 @@
                     <div class="flex items-center gap-4">
                         <span class="w-24 text-lg font-semibold">English</span>
                         <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 10%;"></div>
+                            <div class="h-full bg-green-400 rounded-full" style="width: 75%;"></div>
                         </div>
                     </div>
-                    <span class="ml-28 text-gray-500">10%</span>
+                    <span class="ml-28 text-gray-500">75%</span>
                 </div>
 
-                {{-- Psychology --}}
-                <div>
+                {{-- Science --}}
+                <div class="mb-5">
                     <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">Psych</span>
+                        <span class="w-24 text-lg font-semibold">Science</span>
                         <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 100%;"></div>
+                            <div class="h-full bg-green-400 rounded-full" style="width: 90%;"></div>
                         </div>
                     </div>
-                    <span class="ml-28 text-gray-500">100%</span>
+                    <span class="ml-28 text-gray-500">90%</span>
+                </div>
+
+                {{-- History --}}
+                <div>
+                    <div class="flex items-center gap-4">
+                        <span class="w-24 text-lg font-semibold">History</span>
+                        <div class="flex-1 h-6 border border-black rounded-full">
+                            <div class="h-full bg-green-400 rounded-full" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <span class="ml-28 text-gray-500">65%</span>
                 </div>
 
             </section>

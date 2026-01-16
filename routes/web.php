@@ -10,7 +10,6 @@ Route::get('/', function () {
     return view('Login');
 });
 
-Route::post('/login-check', [LoginController::class, 'check']);
 
 Route::post('/login-check', function (Request $request) {
     $validated = $request->validate([
@@ -30,8 +29,8 @@ Route::post('/login-check', function (Request $request) {
     return match ($user->course_type) {
         'student_Acc'   => response()->json(['success' => true, 'redirect' => route('studentDashAcc')]),
         'student_Psych' => response()->json(['success' => true, 'redirect' => route('studentDashPsych')]),
-        'student_Educ'  => response()->json(['success' => true, 'redirect' => route('studentDashEduc')]),
-        'student_Teach' => response()->json(['success' => true, 'redirect' => route('StudentDashTeach')]),
+        'student_Teach' => response()->json(['success' => true, 'redirect' => route('studentDashTeach')]),
+        'Teacher'       => response()->json(['success' => true, 'redirect' => route('teacherDash')]),
         'Admin'         => response()->json(['success' => true, 'redirect' => route('adminDash')]),
         default         => abort(403),
     };
@@ -40,6 +39,6 @@ Route::post('/login-check', function (Request $request) {
 
 Route::get('/student/acc', fn () => view('StudentDashAcc'))->name('studentDashAcc');
 Route::get('/student/psych', fn () => view('StudentDashPsych'))->name('studentDashPsych');
-Route::get('/student/educ', fn () => view('StudentDashEduc'))->name('studentDashEduc');
-Route::get('/admin', fn () => view('AdminDash'))->name('adminDash');
-Route::get('/teacher/studentdashteach', fn () => view('StudentDashTeach'))->name('StudentDashTeach');
+Route::get('/student/teach', fn () => view('StudentDashTeach'))->name('studentDashTeach');
+Route::get('/admin', fn () => view(view: 'AdminDash'))->name('adminDash');
+Route::get('/teacher', fn () => view(view: 'TeacherDash'))->name('teacherDash');
