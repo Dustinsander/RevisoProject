@@ -101,6 +101,8 @@
                     <span class="ml-28 text-gray-500">65%</span>
                 </div>
 
+
+
             </section>
 
         </main>
