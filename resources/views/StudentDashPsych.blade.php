@@ -35,7 +35,7 @@
 
   <!-- Sidebar Header with Button -->
   <div class="flex items-center justify-between bg-white h-16 px-4">
-    <h2 class="text-lg font-semibold text-black text-semibold">Psychology Hub</h2>
+    <h2 class="text-2xl font-semibold text-black text-semibold">Psychology Hub</h2>
       <div class="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
@@ -46,7 +46,7 @@
   </div>
 
   <!-- Sidebar Content -->
-  <div class="flex-1 p-4 space-y-4 text-black text-lg font-semibold">
+  <div class="flex-1 p-4 space-y-4 text-black text-2xl font-semibold">
     <a href="#" data-tab="dashboard" class="block hover:bg-gray-200 p-6 rounded">Dashboard</a>
     <a href="#" data-tab="lectures" class="block hover:bg-gray-200 p-6 rounded">Lectures</a>
     <a href="#" ata-tab="assessments" class="block hover:bg-gray-200 p-6 rounded">Assessment</a>
@@ -65,9 +65,26 @@
     {{-- WELCOME / UPCOMING --}}
    <section id="dashboard" class="flex flex-row space-x-6 p-10 justify-center">
  
-  <!-- Right: Vision & Mission -->
+  
+<!-- Left: Profile Card -->
+<div class="flex flex-col space-y-6">
+  <div class="bg-white rounded-2xl shadow-lg w-96 h-96 flex flex-col items-center justify-start p-4 space-y-4">
+    <img src="{{ asset('images/RevisoLogo.png') }}" alt="Reviso Logo" class="max-w-sm max-h-32">
+    <p class="text-lg font-bold">Hello, [User]</p>
+    <p class="text-sm text-gray-500">Student</p>
+  </div>
+
+  <section id="progress" class="bg-white rounded-2xl shadow-lg w-96 h-96 flex flex-col items-center justify-start p-4 space-y-4">
+    <h2 class="text-2xl font-bold">Performance Tracker</h2>
+    <div class="w-full h-full">
+      <canvas id="performanceChart" class="w-full h-full"></canvas>
+    </div>
+  </section>
+</div>
+
+
+<!-- Left: Vision & Mission -->
   <div class="bg-white rounded-2xl p-8 w-full max-w-4xl space-y-1 shadow-lg flex flex-col items-center">
-  <img src="{{ asset('images/RevisoLogo.png') }}" alt="Reviso Logo" class="max-w-64 max-h-64">
     <h2 class="text-2xl font-bold text-center">About</h2>
      <p class="text-gray-700 text-justify leading-relaxed">
       PASIG CATHOLIC COLLEGE, as part of the Immaculate Conception Parish, envisions itself as an evangelized and evangelizing community whose commitment to quality Catholic education promotes a culture of excellence and the task of social transformation.
@@ -90,24 +107,6 @@
       <li>We empower our work force by professionalizing all operations and setting up more effective systems of coordination, communication and networking among units of the institution.</li>
     </ul>
   </div>
-<!-- Left: Profile Card -->
-<div class="flex flex-col space-y-6">
-  <div class="bg-white rounded-2xl p-10 h-64 w-64 flex flex-col items-center justify-center space-y-4 shadow-lg">
-    <img src="{{ asset('images/RevisoLogo.png') }}" alt="Reviso Logo" class="max-w-sm max-h-32">
-    <p class="text-lg font-bold">Hello, [User]</p>
-    <p class="text-sm text-gray-500">Student</p>
-  </div>
-
-  <section id="progress" class="bg-white rounded-2xl shadow-lg w-96 h-96 flex flex-col items-center justify-start p-4 space-y-4">
-    <h2 class="text-2xl font-bold">Performance Tracker</h2>
-    <div class="w-full h-full">
-      <canvas id="performanceChart" class="w-full h-full"></canvas>
-    </div>
-  </section>
-</div>
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -119,7 +118,7 @@
       datasets: [{
         label: 'Scores (%)',
         data: [80, 75, 90, 65],
-        backgroundColor: ['#4ade80','#60a5fa','#facc15','#f87171'],
+        backgroundColor: ['#A84EEA','#A84EEA','#A84EEA','#A84EEA'],
         borderRadius: 8
       }]
     },
