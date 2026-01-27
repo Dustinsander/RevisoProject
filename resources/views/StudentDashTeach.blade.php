@@ -11,7 +11,7 @@
 <body class="bg-gray-200 min-h-screen">
 
     {{-- TOP BAR --}}
-<header class="bg-white h-16 flex items-center justify-between px-6 shadow sticky top-0 z-50">
+<header class="bg-white h-20 flex items-center justify-between px-8 shadow-lg sticky top-0 z-50 border-b border-gray-200">
 
             
         <div class="flex items-center gap-1">
@@ -34,16 +34,7 @@
      class="fixed top-15 left-0 h-full w-64 bg-[#455AE4] text-white transform -translate-x-48 transition-transform duration-300 ease-in-out z-40 flex flex-col">
 
   <!-- Sidebar Header with Button -->
-  <div class="flex items-center justify-between bg-white h-16 px-4">
-    <h2 class="text-2xl font-semibold text-black text-semibold">Settings</h2>
-      <div class="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5.121 17.804A9 9 0 1119.78 6.22M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-        </div>
-  </div>
+
 
   <!-- Sidebar Content -->
   <div class="flex-1 p-4 space-y-4 text-white text-2xl font-semibold">
@@ -51,6 +42,7 @@
     <a href="#" data-tab="lectures" class="block hover:bg-gray-200 p-6 rounded">Lectures</a>
     <a href="#" ata-tab="assessments" class="block hover:bg-gray-200 p-6 rounded">Assessment</a>
     <a href="#" ata-tab="progress" class="block hover:bg-gray-200 p-6 rounded">Progress Tracker</a>
+    <a href="#" ata-tab="progress" class="block hover:bg-gray-200 p-6 rounded">Settings</a>
 
       
   </div>
@@ -63,7 +55,7 @@
        <main class="flex-1 p-10 space-y-10 ml-10">
 
     {{-- WELCOME / UPCOMING --}}
-   <section id="dashboard" class="flex flex-row space-x-6 p-10 justify-center">
+   <section id="dashboard" class="flex flex-row space-x-6 p-1 justify-center">
  
   
 <!-- Left: Profile Card -->
