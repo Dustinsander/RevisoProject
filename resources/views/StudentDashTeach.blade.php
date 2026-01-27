@@ -11,102 +11,157 @@
 <body class="bg-gray-200 min-h-screen">
 
     {{-- TOP BAR --}}
-    <header class="bg-white h-16 flex items-center justify-between px-6 shadow">
-        <div class="flex items-center gap-3">
+<header class="bg-white h-16 flex items-center justify-between px-6 shadow sticky top-0 z-50">
+
+            
+        <div class="flex items-center gap-1">
+            <button id="menu-toggle"class=" p-1 text-black rounded">
+         ☰
+          </button>
             <img src="{{ asset('images/RevisoLogo.png') }}" alt="Reviso Logo" class="max-w-sm max-h-32">
 
         </div>
 
-        <div class="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white">
+      
+        
+    </header>
+
+    <div class="flex">
+
+        
+<!-- Sidebar -->
+<div id="sidebar" 
+     class="fixed top-15 left-0 h-full w-64 bg-[#455AE4] text-white transform -translate-x-48 transition-transform duration-300 ease-in-out z-40 flex flex-col">
+
+  <!-- Sidebar Header with Button -->
+  <div class="flex items-center justify-between bg-white h-16 px-4">
+    <h2 class="text-2xl font-semibold text-black text-semibold">Settings</h2>
+      <div class="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M5.121 17.804A9 9 0 1119.78 6.22M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
         </div>
-    </header>
+  </div>
 
-    <div class="flex">
+  <!-- Sidebar Content -->
+  <div class="flex-1 p-4 space-y-4 text-white text-2xl font-semibold">
+    <a href="#" data-tab="dashboard" class="block hover:bg-gray-200 p-6 rounded">Dashboard</a>
+    <a href="#" data-tab="lectures" class="block hover:bg-gray-200 p-6 rounded">Lectures</a>
+    <a href="#" ata-tab="assessments" class="block hover:bg-gray-200 p-6 rounded">Assessment</a>
+    <a href="#" ata-tab="progress" class="block hover:bg-gray-200 p-6 rounded">Progress Tracker</a>
 
-        {{-- SIDEBAR --}}
-        <aside class="w-64 bg-[#5C6FED] min-h-[calc(100vh-4rem)] text-white">
-            <nav class="flex flex-col text-lg font-semibold">
-                <a href="#" class="bg-[#455AE4] px-6 py-5">Dashboard</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Lectures</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Assessments</a>
-                <a href="#" class="px-6 py-5 hover:bg-[#455AE4]">Progress Tracker</a>
-            </nav>
-        </aside>
+      
+  </div>
+</div>
+
+
+
 
         {{-- MAIN CONTENT --}}
-        <main class="flex-1 p-10 space-y-10">
+       <main class="flex-1 p-10 space-y-10 ml-10">
 
-            {{-- WELCOME / UPCOMING --}}
-            <section class="bg-white rounded-2xl p-8">
-                <h1 class="text-2xl font-bold mb-4">
-                    Welcome back, [Teacher Student Name]
-                </h1>
+    {{-- WELCOME / UPCOMING --}}
+   <section id="dashboard" class="flex flex-row space-x-6 p-10 justify-center">
+ 
+  
+<!-- Left: Profile Card -->
+<div class="flex flex-col space-y-6">
+  <div class="bg-white rounded-2xl shadow-lg w-96 h-96 flex flex-col items-center justify-start p-4 space-y-4">
+    <img src="{{ asset('images/RevisoLogo.png') }}" alt="Reviso Logo" class="max-w-sm max-h-32">
+    <p class="text-lg font-bold">Hello, [User]</p>
+    <p class="text-sm text-gray-500">Student</p>
+  </div>
 
-                <h2 class="text-xl font-semibold mb-2">Upcoming Deadlines</h2>
-
-                <p class="text-lg">January 20, 2025 – Language Arts</p>
-                <p class="text-lg">February 15, 2025 – Social Studies</p>
-            </section>
-
-            {{-- PERFORMANCE TRACKER --}}
-            <section class="bg-white rounded-2xl p-8">
-                <h2 class="text-2xl font-bold mb-6">Performance Tracker</h2>
-
-                {{-- Mathematics --}}
-                <div class="mb-5">
-                    <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">Mathematics</span>
-                        <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <span class="ml-28 text-gray-500">80%</span>
-                </div>
-
-                {{-- English --}}
-                <div class="mb-5">
-                    <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">English</span>
-                        <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <span class="ml-28 text-gray-500">75%</span>
-                </div>
-
-                {{-- Science --}}
-                <div class="mb-5">
-                    <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">Science</span>
-                        <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <span class="ml-28 text-gray-500">90%</span>
-                </div>
-
-                {{-- History --}}
-                <div>
-                    <div class="flex items-center gap-4">
-                        <span class="w-24 text-lg font-semibold">History</span>
-                        <div class="flex-1 h-6 border border-black rounded-full">
-                            <div class="h-full bg-green-400 rounded-full" style="width: 65%;"></div>
-                        </div>
-                    </div>
-                    <span class="ml-28 text-gray-500">65%</span>
-                </div>
+  <section id="progress" class="bg-white rounded-2xl shadow-lg w-96 h-96 flex flex-col items-center justify-start p-4 space-y-4">
+    <h2 class="text-2xl font-bold">Performance Tracker</h2>
+    <div class="w-full h-full">
+      <canvas id="performanceChart" class="w-full h-full"></canvas>
+    </div>
+  </section>
+</div>
 
 
+<!-- Left: Vision & Mission -->
+  <div class="bg-white rounded-2xl p-8 w-full max-w-4xl space-y-1 shadow-lg flex flex-col items-center">
+    <h2 class="text-2xl font-bold text-center">About</h2>
+     <p class="text-gray-700 text-justify leading-relaxed">
+      PASIG CATHOLIC COLLEGE, as part of the Immaculate Conception Parish, envisions itself as an evangelized and evangelizing community whose commitment to quality Catholic education promotes a culture of excellence and the task of social transformation.
 
-            </section>
+    </p>
 
-        </main>
+    <h2 class="text-2xl font-bold text-center">Vision</h2>
+    <p class="text-gray-700 text-justify leading-relaxed">
+      
+      PASIG CATHOLIC COLLEGE, as part of the Immaculate Conception Parish, envisions itself as an evangelized and evangelizing community whose commitment to quality Catholic education promotes a culture of excellence and the task of social transformation.
+    </p>
+
+    <h2 class="text-2xl font-bold text-center">Mission</h2>
+    <ul class="list-decimal list-inside text-gray-700 space-y-2 leading-relaxed">
+      
+      <li>We are role models in the practice of our Christian faith.</li>
+      <li>We discern and develop what is distinctly Catholic in our educational system.</li>
+      <li>We promote the value of excellence at all levels of the institution’s operation.</li>
+      <li>As a community, we adhere to social transformation through immersion and advocacy, community outreach and parish involvement.</li>
+      <li>We empower our work force by professionalizing all operations and setting up more effective systems of coordination, communication and networking among units of the institution.</li>
+    </ul>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('performanceChart').getContext('2d');
+  const performanceChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Mathematics', 'English', 'Science', 'History'],
+      datasets: [{
+        label: 'Scores (%)',
+        data: [80, 75, 90, 65],
+        backgroundColor: ['#455AE4','#455AE4','#455AE4','#455AE4'],
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false, // allows the chart to fill the div height
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100
+        }
+      }
+    }
+  });
+</script>
+
+
+   
+</main>
+
     </div>
 
 </body>
+
+<script>
+
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.getElementById('menu-toggle');
+
+toggleBtn.addEventListener('click', () => {
+  if (sidebar.classList.contains('-translate-x-48')) {
+    sidebar.classList.remove('-translate-x-48');
+    sidebar.classList.add('translate-x-0');
+  } else {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-48');
+  }
+});
+
+</script>
 </html>
+
+

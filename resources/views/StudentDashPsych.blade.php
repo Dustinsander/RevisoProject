@@ -35,7 +35,7 @@
 
   <!-- Sidebar Header with Button -->
   <div class="flex items-center justify-between bg-white h-16 px-4">
-    <h2 class="text-2xl font-semibold text-black text-semibold">Psychology Hub</h2>
+    <h2 class="text-2xl font-semibold text-black text-semibold">Settings</h2>
       <div class="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
@@ -46,11 +46,11 @@
   </div>
 
   <!-- Sidebar Content -->
-  <div class="flex-1 p-4 space-y-4 text-black text-2xl font-semibold">
-    <a href="#" data-tab="dashboard" class="block hover:bg-gray-200 p-6 rounded">Dashboard</a>
-    <a href="#" data-tab="lectures" class="block hover:bg-gray-200 p-6 rounded">Lectures</a>
-    <a href="#" ata-tab="assessments" class="block hover:bg-gray-200 p-6 rounded">Assessment</a>
-    <a href="#" ata-tab="progress" class="block hover:bg-gray-200 p-6 rounded">Progress Tracker</a>
+  <div class="flex-1 p-4 space-y-4 text-white text-2xl font-semibold">
+    <a href="#" data-tab="dashboard" class="block hover:bg-gray-400 p-6 rounded">Dashboard</a>
+    <a href="#" data-tab="lectures" class="block hover:bg-gray-400 p-6 rounded">Lectures</a>
+    <a href="#" ata-tab="assessments" class="block hover:bg-gray-400 p-6 rounded">Assessment</a>
+    <a href="#" ata-tab="progress" class="block hover:bg-gray-400 p-6 rounded">Progress Tracker</a>
 
       
   </div>
